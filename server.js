@@ -68,7 +68,7 @@ function makeCsv(response) {
                         let csv = json2csv({ data: marketData, fields: fields, fieldNames: fieldNames });
                         console.log(csv);
                         let file = 'file' + counter + '.csv';
-                        fs.writeFile('./csv/' + file, csv, (err) => {
+                        fs.writeFile(__dirname + '/csv/' + file, csv, (err) => {
                             if (err) throw err;
                             console.log('file saved');
                             // return {file: file}
