@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px black solid;
+    font: 12px sans-serif;
+}
+td {
+    border: 1px black solid;
+    padding: 5px;
+    background-color: rgb(226, 255, 245);
+}
+
+#table-content {
+    /* padding: 1000px; */
+}
+
+#download {
+    margin: auto;
+}
+
+#refresh {
+    margin: auto;
+}
