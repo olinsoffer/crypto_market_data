@@ -50,9 +50,8 @@ function makeCsv(response) {
         .then((marketRes) => {
             getConversionData()
                 .then((conversionRes) => {
-                    console.log(conversionRes);
-                    conversionRes = JSON.parse(conversionRes);
                     try {
+                        conversionRes = JSON.parse(conversionRes);
                         marketData = JSON.parse(marketRes)
                             .filter((val, index, arr) => {
                                 return (val.bid && val.ask);
@@ -66,14 +65,11 @@ function makeCsv(response) {
                             }
                         });
                         let csv = json2csv({ data: marketData, fields: fields, fieldNames: fieldNames });
-                        console.log(csv);
                         let file = 'file' + counter + '.csv';
                         fs.writeFile(__dirname + '/csv/' + file, csv, (err) => {
                             if (err) throw err;
-                            console.log('file saved');
-                            // return {file: file}
-                            // let file = 'file' + counter + '.csv';
-                            console.log(file);
+                            // console.log('file saved');
+                            // console.log(file);
                             counter++;
                             response.send(file);
                         });
