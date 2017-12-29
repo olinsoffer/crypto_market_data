@@ -1,0 +1,17 @@
+{
+  "name": "curdata2csv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "json2csv": "^3.11.5",
+    "request": "^2.83.0"
+  }
+}
