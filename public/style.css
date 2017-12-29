@@ -1,27 +1,33 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
-}
+} */
 
 table {
     border-collapse: collapse;
     border: 2px black solid;
-    font: 12px sans-serif;
+    font: 14px sans-serif;
 }
 td {
     border: 1px black solid;
-    padding: 5px;
-    background-color: rgb(226, 255, 245);
+    padding: 10px;
+    background-color: rgb(246, 248, 255);
 }
 
-#table-content {
-    /* padding: 1000px; */
+td:hover { 
+    background-color: rgb(9, 255, 0);
 }
 
-#download {
-    margin: auto;
+/* #table-content {
+    margin-top: 100px;
+    margin : 100px, auto;
+    /* margin-right: */
+} */
+
+/* #download {
+    margin: 0, auto;
 }
 
 #refresh {
     margin: auto;
-}
+} */

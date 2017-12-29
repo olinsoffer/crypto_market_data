@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Crypto Market Data</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
     <style>
     </style>
 </head>
 
 
 <body>
-    <button id="download" type="button">Download</button>
-    <button id='refresh' type="button">Refresh</button>
-    <div id="table-content"></div>
+    <button id="download" class="btn-primary" type="button">Download</button>
+    <button id='refresh' type="button" class="btn-primary">Refresh</button>
+    <div class="row">
+        <div id="table-content" class="col-md-12"></div>
+    </div>
 
 
     <script src="jquery/dist/jquery.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="file-saver/FileSaver.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
     <script src="main.js"></script>
 </body>
 
