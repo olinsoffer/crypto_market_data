@@ -19,8 +19,8 @@ let currencyLayerApiKey = '32e6b0b7c2f5e78fd35a229d3e59d3b0';
 let curLayUrl = 'http://www.apilayer.net/api/live?access_key=' + currencyLayerApiKey;
 
 let marketDataUrl = 'http://api.bitcoincharts.com/v1/markets.json';
-const fields = ['symbol', 'currency', 'bid', 'ask', ' latest_trade', 'n_trades', 'high', 'close', 'previous_close', 'volume', 'currency_volume', 'conversion'];
-const fieldNames = ['Symbol', 'Currency', 'Bid', 'Ask', 'Latest trade', 'Number of trades', 'High', 'Close', 'Previous close', 'Volume', 'Currency volume', 'Conversion Rate'];
+const fields = ['symbol', 'currency', 'bid', 'ask',  'high', 'close', 'volume', 'currency_volume', 'conversion'];
+const fieldNames = ['Symbol', 'Currency', 'Bid', 'Ask',  'High', 'Close',  'Volume', 'Currency volume', 'Conversion Rate'];
 let counter = 0, marketData;
 
 let getConversionData = () => {
@@ -68,8 +68,6 @@ function makeCsv(response) {
                         let file = 'file' + counter + '.csv';
                         fs.writeFile(__dirname + '/csv/' + file, csv, (err) => {
                             if (err) throw err;
-                            // console.log('file saved');
-                            // console.log(file);
                             counter++;
                             response.send(file);
                         });
