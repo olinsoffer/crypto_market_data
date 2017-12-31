@@ -81,14 +81,16 @@ function makeCsv(response) {
                         item.usd_bid_val = item.bid * item.conversion;
                         item.usd_ask_val = item.ask * item.conversion;
                     } else if (currentCurrency === 'USD') {
-                        item.conversion = 'N/A';
-                        item.usd_bid_val = 'N/A';
-                        item.usd_ask_val = 'N/A';
+                        let val = 'N/A';
+                        item.conversion = val;
+                        item.usd_bid_val = val;
+                        item.usd_ask_val = val;
 
                     } else {
-                        item.conversion = 'no data';
-                        item.usd_bid_val = 'no data';
-                        item.usd_ask_val = 'no data';
+                        let val = 'no data';
+                        item.conversion = val;
+                        item.usd_bid_val = val;
+                        item.usd_ask_val = val;
                     }
                 });
 
