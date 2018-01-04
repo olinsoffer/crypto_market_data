@@ -163,7 +163,7 @@ function makeCsv(response) {
         fs.writeFile(__dirname + '/csv/' + file, csv, (err) => {
             if (err) throw err;
             counter++;
-            response.send(file);
+            response.send({fileName: file, file: csv});
         });
     });
 }
