@@ -69,13 +69,8 @@ function getInactiveMarkets() {
                 let symbol = $(this).text();
                 // let symbol = item.substring(0, item.search(/\(/));
                 result[symbol] = true;
-                // console.log(result);
             });
-            // let json = JSON.stringify(inactiveMarkets);
-            // fs.writeFile(__dirname + '/inactivemarkets.json', json, (err) => {
-            //     if (err) throw err;
-            // });
-            console.log(result);
+            console.log('inactiveMarkets data loaded');
         }
     });
     return result;
@@ -188,6 +183,6 @@ app.get('/download/:fileName', (req, res) => {
     res.download(file);
 });
 //
-app.listen(process.env.PORT || '7000', () => {
+app.listen(process.env.PORT || '3000', () => {
     console.log('Server is running on http://localhost:8000 or http://127.0.0.1:3000');
 });
