@@ -13,6 +13,13 @@
 <body>
     <button id="download" class="btn-primary" type="button">Download</button>
     <button id='refresh' type="button" class="btn-primary">Refresh</button>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="filter-btn" type="button" data-toggle="dropdown">Filter
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" id="drop-cur">
+        </ul>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div id="table-content"></div>
@@ -24,7 +31,7 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="file-saver/FileSaver.js"></script>
     <script src="bootstrap/dist/js/bootstrap.js"></script>
-    <!-- dsdsd -->
+    <script src="papaparse/papaparse.js"></script>
     <script src="main.js"></script>
 </body>
 

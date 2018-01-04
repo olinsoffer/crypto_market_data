@@ -106,15 +106,20 @@ let roundNumberProps = function (obj) {
 
 
 
-let formatData = (callback) => {
+let formatData = (callback, filter) => {
     getMarketData()
         .then((marketRes) => {
             getConversionData(() => {
                 marketData = JSON.parse(marketRes)
                     .filter((val, index, arr) => {
                         let symbol = val.symbol;
-                        return (val.bid && val.ask && !inactiveMarkets[symbol]);
+                        if (!filter) {
+                            return (val.bid && val.ask && !inactiveMarkets[symbol]);
+                        } else {
+                            return (val.bid && val.ask && !inactiveMarkets[symbol] && (val.currency === filter || symbol === 'coinbaseUSD'));
+                        }
                     });
+
                 let coinBaseUSD = marketData.find((item) => {
                     return item.symbol === 'coinbaseUSD';
                 });
@@ -146,8 +151,10 @@ let formatData = (callback) => {
                         item.conversion = val;
                         item.usd_bid_val = item.bid * item.conversion;
                         item.usd_ask_val = item.ask * item.conversion;
+
                         item.bid_arb = item.usd_bid_val / coinBaseUSD.bid;
                         item.ask_arb = item.usd_ask_val / coinBaseUSD.ask;
+
                     }
                 }
             });
@@ -156,21 +163,22 @@ let formatData = (callback) => {
 
 
 
-function makeCsv(response) {
+function makeCsv(response, filter) {
     formatData(() => {
         let csv = json2csv({ data: marketData, fields: fields, fieldNames: fieldNames });
         let file = 'file' + counter + '.csv';
         fs.writeFile(__dirname + '/csv/' + file, csv, (err) => {
             if (err) throw err;
             counter++;
-            response.send(file);
+            response.send({ fileName: file, file: csv });
         });
-    });
+    }, filter);
 }
 
 
 app.get('/newcsv', (req, response) => {
-    makeCsv(response);
+    let filter = req.query.filter || null;
+    makeCsv(response, filter);
 });
 
 app.get('/download/:fileName', (req, res) => {

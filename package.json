@@ -20,6 +20,7 @@
     "json2csv": "^3.11.5",
     "mark.js": "^8.11.0",
     "money": "^0.2.0",
+    "papaparse": "^4.3.6",
     "request": "^2.83.0"
   },
   "devDependencies": {
